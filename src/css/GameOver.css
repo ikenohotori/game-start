@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&family=Zen+Maru+Gothic:wght@700&display=swap');
+
+.gameover-root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kiwi Maru', 'Zen Maru Gothic', 'Arial', sans-serif;
+    background: none;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98);}
+    to { opacity: 1; transform: scale(1);}
+}
+
+.gameover-title {
+    font-size: 2.5rem;
+    color: #b08968;
+    text-shadow: 2px 4px 0 #f2e9e1, 0 0 18px #b7b7a4;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    font-family: 'Kiwi Maru', 'Zen Maru Gothic', 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    animation: popTitle 1s cubic-bezier(.23,1.09,.62,1.01);
+}
+
+@keyframes popTitle {
+    0% { transform: scale(0.7) rotate(-10deg);}
+    60% { transform: scale(1.15) rotate(3deg);}
+    100% { transform: scale(1) rotate(0);}
+}
+
+.gameover-records {
+    background: rgba(255,255,255,0.92);
+    border-radius: 22px;
+    padding: 1.5em 2.5em;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 6px 24px rgba(120, 140, 120, 0.13);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3em;
+    border: 2px solid #e9edc9;
+    animation: fadeInUp 1s;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+.gameover-current, .gameover-best {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-size: 1.1rem;
+    color: #7f5539;
+    margin-bottom: 0.2em;
+    font-family: 'Zen Maru Gothic', 'Kiwi Maru', 'Arial', sans-serif;
+    letter-spacing: 1px;
+}
+
+.value {
+    font-size: 2.1rem;
+    color: #6b705c;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #e9edc9;
+}
+
+.gameover-update {
+    margin-top: 1.2em;
+    color: #d9480f;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #fff3, 0 0 16px #ffb703;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7em;
+    position: relative;
+    z-index: 2;
+    /* fireworks animation */
+    animation: fireworks 1.2s cubic-bezier(.23,1.09,.62,1.01) both, flashGlow 2s infinite alternate;
+}
+
+@keyframes fireworks {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+        filter: blur(2px);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.2) rotate(6deg);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes flashGlow {
+    0% { text-shadow: 0 0 16px #ffb703, 0 2px 8px #fff3; }
+    100% { text-shadow: 0 0 32px #ffb703, 0 2px 16px #fff3; }
+}
+
+.firework-emoji {
+    font-size: 2.2rem;
+    animation: fireworkPop 1.2s cubic-bezier(.23,1.09,.62,1.01) both, fireworkSparkle 1.5s infinite alternate;
+}
+
+@keyframes fireworkPop {
+    0% { transform: scale(0.2) rotate(-30deg);}
+    60% { transform: scale(1.4) rotate(10deg);}
+    100% { transform: scale(1) rotate(0);}
+}
+@keyframes fireworkSparkle {
+    0% { filter: drop-shadow(0 0 0px #ffd700);}
+    100% { filter: drop-shadow(0 0 16px #ffd700);}
+}
+
+.update-text {
+    animation: rainbowText 2s linear infinite;
+    background: linear-gradient(90deg, #ffb703, #ff006e, #3a86ff, #ffb703 80%);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+@keyframes rainbowText {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.gameover-btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameover-retry-btn {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    font-family: 'Kiwi Maru', 'Zen Maru Gothic', 'Arial', sans-serif;
+    font-size: 1.4rem;
+    border: none;
+    background: linear-gradient(135deg, #e9edc9 0%, #f7d9ae 100%);
+    color: #7f5539;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(120, 140, 120, 0.13);
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+    outline: none;
+    font-weight: bold;
+    animation: popBtn 1.2s cubic-bezier(.23,1.09,.62,1.01);
+}
+
+@keyframes popBtn {
+    0% { transform: scale(0.7);}
+    60% { transform: scale(1.1);}
+    100% { transform: scale(1);}
+}
+
+.gameover-retry-btn:hover {
+    background: linear-gradient(135deg, #f7d9ae 0%, #e9edc9 100%);
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 12px 32px #ffb70344;
+}
+
+@media (max-width: 600px) {
+    .gameover-title {
+        font-size: 1.1rem;
+    }
+    .gameover-records {
+        padding: 0.7em 0.8em;
+    }
+    .label {
+        font-size: 0.9rem;
+    }
+    .value {
+        font-size: 1.1rem;
+    }
+    .gameover-retry-btn {
+        width: 90px;
+        height: 90px;
+        font-size: 0.8rem;
+    }
+    .gameover-root {
+        padding: 0 2vw;
+    }
+}

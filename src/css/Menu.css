@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&family=Zen+Maru+Gothic:wght@700&display=swap');
+
+.menu-root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5vw;
+}
+
+.title {
+    font-family: 'Kiwi Maru', 'Zen Maru Gothic', 'Arial', sans-serif;
+    font-size: 2.2rem;
+    color: #6b705c;
+    text-shadow: 1px 2px 0 #f2e9e1, 0 0 12px #b7b7a4;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.description {
+    font-family: 'Zen Maru Gothic', 'Kiwi Maru', 'Arial', sans-serif;
+    font-size: 1.15rem;
+    color: #7f5539;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    padding: 0.9em 1.5em;
+    margin-bottom: 2.5rem;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(120, 140, 120, 0.08);
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    font-family: 'Kiwi Maru', 'Zen Maru Gothic', 'Arial', sans-serif;
+    font-size: 1.3rem;
+    border: none;
+    background: linear-gradient(135deg, #e9edc9 0%, #f7d9ae 100%);
+    color: #7f5539;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(120, 140, 120, 0.13);
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 1.5rem;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.start-button:hover {
+    background: linear-gradient(135deg, #f7d9ae 0%, #e9edc9 100%);
+    transform: scale(1.06);
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        padding: 0.5em 0.7em;
+    }
+
+    .start-button {
+        width: 90px;
+        height: 90px;
+        font-size: 0.8rem;
+    }
+
+    .menu-root {
+        padding: 0 2vw;
+    }
+}
