@@ -52,7 +52,21 @@
     letter-spacing: 1px;
     outline: none;
 }
-
+.menu-hint {
+    display: inline-block;
+    margin-top: 1.2rem;
+    margin-bottom: 2.5rem;
+    padding: 0.7em 1.5em;
+    background: linear-gradient(90deg, #fffbe7 60%, #ffe5ec 100%);
+    color: #b08968;
+    font-size: 1.1rem;
+    font-family: 'Zen Maru Gothic', 'Kiwi Maru', 'Arial', sans-serif;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(120, 140, 120, 0.10);
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: bold;
+}
 .start-button:hover {
     background: linear-gradient(135deg, #f7d9ae 0%, #e9edc9 100%);
     transform: scale(1.06);

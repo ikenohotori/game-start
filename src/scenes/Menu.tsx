@@ -9,7 +9,7 @@ function Menu({ onStart }: props) {
     <div className="menu-root">
       <h2 className="title">猫回避ゲーム</h2>
       <span className="description">ハムスターを動かして猫から逃げてね</span>
-      <p>1分を超えたら良い事があるかも・・</p>
+      <p className="menu-hint">1分を超えたら良い事があるかも・・</p>
       <div className="button-wrapper">
         <button className="start-button" onClick={() => onStart()}>
           はじめる
