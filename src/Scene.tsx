@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Menu from "./scenes/Menu";
 import CountDown from "./scenes/CountDown";
 import Game from "./scenes/Game";
 import GameOver from "./scenes/GameOver";
 import "./css/Scene.css";
+import Bonus from "./scenes/Bonus";
 
 enum SceneType {
   Menu,
   CountDown,
   Game,
   GameOver,
+  Bonus,
 }
 
 function Scene() {
@@ -28,8 +30,12 @@ function Scene() {
         {scene === SceneType.Game && (
           <Game
             onGameOver={(passTime) => {
-              setScene(SceneType.GameOver);
-              setPassTime(passTime);
+              if (passTime >= 60) {
+                setScene(SceneType.Bonus);
+              } else {
+                setScene(SceneType.GameOver);
+                setPassTime(passTime);
+              }
             }}
           />
         )}
@@ -38,6 +44,9 @@ function Scene() {
             passTime={passTime}
             onRetry={() => setScene(SceneType.CountDown)}
           />
+        )}
+        {scene === SceneType.Bonus && (
+          <Bonus onRetry={() => setScene(SceneType.CountDown)} />
         )}
       </div>
     </div>

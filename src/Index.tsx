@@ -3,30 +3,48 @@ import { createRoot } from "react-dom/client";
 import Scene from "./Scene.tsx";
 
 const SetEvent = () => {
-  window.isMouseDown = false;
+  const root = document.getElementById("root");
+  if (!root) return;
 
-  window.addEventListener("mousedown", () => {
+  root.addEventListener(
+    "touchstart",
+    (e: TouchEvent) => {
+      // UI要素（button等）なら何もしない
+      if (
+        (e.target as HTMLElement).closest("button, a, input, textarea, select")
+      )
+        return;
+      window.isMouseDown = true;
+      const touch = e.touches[0];
+      window.mousePosition = {
+        x: touch.clientX,
+        y: touch.clientY,
+      };
+      e.preventDefault();
+    },
+    { passive: false }
+  );
+
+  root.addEventListener(
+    "touchmove",
+    (e: TouchEvent) => {
+      if (!window.isMouseDown) return;
+      if (
+        (e.target as HTMLElement).closest("button, a, input, textarea, select")
+      )
+        return;
+      const touch = e.touches[0];
+      window.mousePosition = {
+        x: touch.clientX,
+        y: touch.clientY,
+      };
+      e.preventDefault();
+    },
+    { passive: false }
+  );
+
+  root.addEventListener("touchend", () => {
     window.isMouseDown = false;
-  });
-
-  window.addEventListener("mouseup", () => {
-    window.isMouseDown = true;
-  });
-
-  // index.tsx などで
-  window.addEventListener("mousemove", (e) => {
-    window.mousePosition = {
-      x: e.clientX,
-      y: e.clientY,
-    };
-  });
-
-  window.addEventListener("touchmove", (e: TouchEvent) => {
-    const touch = e.touches[0];
-    window.mousePosition = {
-      x: touch.clientX,
-      y: touch.clientY,
-    };
   });
 };
 

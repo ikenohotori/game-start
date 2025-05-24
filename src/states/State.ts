@@ -30,7 +30,7 @@ export const judgeState = (state: State): boolean => {
         const dx = enemy.left - state.player.left;
         const dy = enemy.top - state.player.top;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        return distance < 8;
+        return distance < 6;
     });
 };
 
