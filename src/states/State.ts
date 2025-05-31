@@ -55,7 +55,7 @@ export const updateGameState = (state: State, callback: (cstate: State) => void)
 
     // 30秒ごとに追加間隔を短くする
     let interval = 50;
-    const step = 10 * 60; // 10秒(60fps)ごと
+    const step = 12 * 60; // 10秒(60fps)ごと
     const minInterval = 3; // 最小間隔
 
     // 10秒ごとにintervalを減らす（例: 50, 40, 30, 20, 10, 5, 3...）
